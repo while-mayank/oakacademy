@@ -1,0 +1,47 @@
+<center><h1>Student Form</h1></center>
+	<div>
+		<center style="background-color: #F9F9F9;">
+			<%= form_for @student do |s| %>
+	      	<div class="modal-body">
+			<div style="margin-top: 10px; margin-bottom: 10px;">
+				<%= s.label :name %>
+				<%= s.text_field :name %><br>
+			</div>
+
+			<div style="margin-top: 10px; margin-bottom: 10px;">
+				<%= s.label :gender %><br>
+				<%= s.radio_button :gender, "Male"%>MALE
+				<%= s.radio_button :gender, "female" %>FEMALE<br>		
+			</div>
+
+			<div style="margin-top: 10px; margin-bottom: 10px;"> 
+				<%= s.label :dob %>
+				<%= s.date_field :dob %><br>
+			</div>
+
+			<div style="margin-top: 10px; margin-bottom: 10px;">
+				<%= s.label :city %>
+				<%= s.select(:city, [['Indore', 1], ['Bhopal', 2],['Ujjain', 1], ['Omkareshwar', 1]]) %><br>
+			</div>
+
+			<div style="margin-top: 10px; margin-bottom: 10px;">
+				<%= s.label :language %>
+				<%= label_tag "Language", "English"%>
+				<%= check_box_tag "student[language][]", "English", checked("English"), id: "language"%><br>
+
+				<%= label_tag "Language", "Hindi"%>
+				<%= check_box_tag "student[language][]", "Hindi", checked("English"),id: "language"%><br>
+
+				<%= label_tag "Language", "Marathi"%>
+				<%= check_box_tag "student[language][]", "marathi", checked("English"),id: "language"%><br>
+			</div>
+
+	      	</div>
+			
+		</center>
+
+	</div>	
+      <div class="modal-footer">
+			<%= s.submit "Submit", class:"btn btn-primary" %>
+        <% end %>
+      </div>

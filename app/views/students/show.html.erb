@@ -1,0 +1,12 @@
+<body>
+	<div>
+		<h1>Student <%=@student.id%> detail</h1>
+		<p>Name: <%= @student.name %><br></p>
+		<p>Gender: <%= @student.gender %><br></p>
+		<p>Date of Birth: <%= @student.dob %><br></p>
+		<p>City: <%= @student.city %><br></p>
+		<p>Language: <%= @student.language %><br></p>
+		<button href="<%= student_path(@student)%>">DELETE</button>
+	</div>
+</body>
+
