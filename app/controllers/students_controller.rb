@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
 
   def index
-    @students = Student.all
+    @students = Student.all.order(created_at: :desc)
     @student = Student.new
   end
 
@@ -15,10 +15,12 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
-    if @student.save
-      redirect_to root_url
-    else
-      render :new
+    respond_to do |format|
+      if @student.save
+        format.js
+      else
+        render :new
+      end
     end
   end
 
