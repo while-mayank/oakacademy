@@ -1,8 +1,12 @@
 <center><h1>Student Form</h1></center>
 <div>
 	<center style="background-color: #F9F9F9; width: 500px; margin-left: 200px;">
-		<%= form_for(student, remote: true) do |s| %>
+		<%= form_for(student,:html => {:id => "update_form"}, remote: true) do |s| %>
       		<div class="modal-body">
+				<div class="avatar">
+				<%= s.label "Image"%>
+				<%= s.file_field :avatar, id:"avatar", onchange: "uploadimage()"%>
+				</div>
 				<div style="margin-top: 10px; margin-bottom: 10px;">
 					<%= s.label :name %>
 					<%= s.text_field :name %><br>
@@ -14,7 +18,7 @@
 				</div>
 				<div style="margin-top: 10px; margin-bottom: 10px;"> 
 					<%= s.label :dob %>
-					<%= s.date_field :dob %><br>
+					<%#= s.date_field :dob %><br>
 				</div>
 				<div style="margin-top: 10px; margin-bottom: 10px;">
 					<%= s.label :city %>
@@ -32,7 +36,7 @@
 			</div>
 			<div class="modal-footer">
   	  			<button type="button" class="btn btn-secondary close-modal" data-bs-dismiss="modal">Close</button>
-				<%= s.submit "Create Student", class:"btn btn-primary" %>
+				<%= s.submit "Submit Form", class:"btn btn-primary" %>
    			</div>
     	<% end %>
 	</center>
